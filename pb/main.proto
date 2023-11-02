@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option go_package = "github.com/raphaelluethy/go-go-brr/pb";
+
+import "pb/types/person.proto";
+
+package main;
+
+service PersonService {
+  rpc GetPerson(GetPersonRequest) returns (GetPersonResponse);
+}
+
+message GetPersonRequest {
+  string id = 1;
+}
+
+message GetPersonResponse {
+  types.Person person = 1;
+}
+
+message GreetRequest {
+  string name = 1;
+}
+
+message GreetResponse {
+  string greeting = 1;
+}
+
+service GreetService {
+  rpc GetGreeting(GreetRequest) returns (GreetResponse);
+}
+
